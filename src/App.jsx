@@ -1,20 +1,18 @@
 import './App.css'
 import ProductCard from './components/productCard' ;
 import AdminPage from './components/adminPage';
-import { Route } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 function App() {
 
   return (
     <BrowserRouter>
-    <div>
       <Routes path="/">
         <Route path='admin' element={<AdminPage/>}/>
         <Route path='/' element={<h1>Home</h1>}></Route>
       </Routes>
-     </div>
-     </BrowserRouter> 
-  ); 
+    </BrowserRouter>
+    );  
 }
 
 export default App;
