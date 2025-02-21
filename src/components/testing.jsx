@@ -6,7 +6,7 @@ export default function Testing(){
     const[itemName,setItemName] = useState("Cococnut")
         return(
             <div className="w-full bg-red-300 h-screen flex flex-col justify-center items-center">
-                <h1 className="text-9xl">{count}{itemName}s</h1>
+                <h1 className="text-9xl">{count} {itemName}s</h1>
                 
                 <button className="w-[100px] h-[30px] bg-black text-white rounded-lg" onClick={()=>{
                    const newCount = count+1;
