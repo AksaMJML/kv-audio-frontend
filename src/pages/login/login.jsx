@@ -1,3 +1,4 @@
+import axios from "axios";
 import "./login.css";
 import { useState } from "react"
 
@@ -12,6 +13,13 @@ export default function LoginPage(){
     function handleOnSubmit(e){
         e.preventDefault();
         console.log(email,password);
+
+        axios.post("http://localhost:3000/api/users/login",{email:email, password : password}     
+        ).then((res)=>{
+            console.log(res)
+        }).catct((err)=>{
+            console.log(err)
+        })
     }
 
     return(
