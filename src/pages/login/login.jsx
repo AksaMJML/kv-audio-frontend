@@ -23,13 +23,15 @@ export default function LoginPage(){
             toast.success("Login Success")
 
             const user = res.data.user;
+            localStorage.setItem("token", res.data.token);
+
             if(user.role === "admin"){
                 navigate("/admin/");
             }else{
                 navigate("/");
             }
 
-        }).catch((err)=>{
+        }).catch((err)=>{   
             console.log(err)
             toast.error(err.response.data.error)
         })

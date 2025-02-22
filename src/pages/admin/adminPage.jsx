@@ -7,7 +7,7 @@ export default function AdminPage() {
   return ( // Added 'return' here
     <div className='w-full h-screen flex'>
       {/* Sidebar */}
-      <div className='w-[300px] h-full bg-green-200 p-4'>
+      <div className='w-[200px] h-full bg-green-200 p-4'>
         <Link to="/admin/dashboard" className='w-full h-[40px] text-black text-[20px] font-bold flex items-center gap-2 p-2'>
           <BsGraphDown />
           Dashboard
