@@ -1,7 +1,7 @@
 import axios from "axios";
 import "./login.css";
 import { useState } from "react"
-import toast, {  } from "react-hot-toast";
+import toast, { Toaster } from "react-hot-toast";
 
 export default function LoginPage(){
     const [email,setEmail] = useState("");
@@ -27,6 +27,7 @@ export default function LoginPage(){
 
     return(
         <div className="bg-picture w-full h-screen flex justify-center items-center">
+         
             <form onSubmit={handleOnSubmit}>
         <div className="w-[400px] h-[400px] backdrop-blur-xl rounded-2xl flex flex-col justify-center items-center relative">
             <img src="logo2.png" alt="logo" className="w-[100px] h-[100px] object-cover top-1"/>

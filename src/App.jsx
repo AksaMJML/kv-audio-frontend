@@ -11,7 +11,7 @@ function App() {
 
   return (
     <BrowserRouter>
-    <Toaster></Toaster>
+    <Toaster position='top-right' />
       <Routes path="/">
         <Route path='/testing' element={<Testing/>}></Route>
         <Route path='/login' element={<LoginPage/>}></Route>
