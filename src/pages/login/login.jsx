@@ -2,10 +2,12 @@ import axios from "axios";
 import "./login.css";
 import { useState } from "react"
 import toast, { Toaster } from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 export default function LoginPage(){
     const [email,setEmail] = useState("");
     const [password,setPassword] = useState("");
+    const navigate = useNavigate();
 
     // function login(){
     //     console.log(email,password)
@@ -22,9 +24,9 @@ export default function LoginPage(){
 
             const user = res.data.user;
             if(user.role === "admin"){
-                window.location.href = "/admin/dashboard";
+                navigate("/admin/");
             }else{
-                window.location.href = "/"
+                navigate("/");
             }
 
         }).catch((err)=>{
