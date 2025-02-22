@@ -24,7 +24,7 @@ export default function LoginPage(){
             if(user.role === "admin"){
                 window.location.href = "/admin/dashboard";
             }else{
-                window.location.href = "/";
+                window.location.href = "/"
             }
 
         }).catch((err)=>{
