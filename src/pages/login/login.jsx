@@ -1,7 +1,7 @@
 import axios from "axios";
 import "./login.css";
 import { useState } from "react"
-import toast, { ToastBar } from "react-hot-toast";
+import toast, { ToastBar,Toaster } from "react-hot-toast";
 
 export default function LoginPage(){
     const [email,setEmail] = useState("");
