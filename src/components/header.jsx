@@ -7,7 +7,7 @@ export default function Header(){
                 <Link to="/" className="text-[25px] font-bold m-1">Home</Link>
                 <Link to="/contact" className="text-[25px] font-bold m-1">Contact</Link>
                 <Link to="/gallery" className="text-[25px] font-bold m-1">Gallery</Link>
-                <Link to="/items" className="text-[25px] font-bold m-1">Items</Link>
+                <Link to="/products" className="text-[25px] font-bold m-1">Products</Link>
             </header>
     )
 }

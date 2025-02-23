@@ -2,8 +2,8 @@ import { BsGraphDown } from "react-icons/bs";
 import { FaRegBookmark, FaRegUser } from "react-icons/fa";
 import { MdOutlineSpeaker } from "react-icons/md";
 import { Link, Route, Routes } from "react-router-dom";
-import AdminItemsPage from "./adminItems";;
-import AddItemPage from "./addItem";
+import AdminProductsPage from "./adminProducts";
+import AddProductPage from "./addProducts";
 
 export default function AdminPage() {
   return ( // Added 'return' here
@@ -18,9 +18,9 @@ export default function AdminPage() {
           <FaRegBookmark />
           Bookings
         </Link>
-        <Link to="/admin/items" className='w-full h-[40px] text-black text-[20px] font-bold flex items-center gap-2 p-2'>
+        <Link to="/admin/products" className='w-full h-[40px] text-black text-[20px] font-bold flex items-center gap-2 p-2'>
           <MdOutlineSpeaker />
-          Items
+          Products
         </Link>
         <Link to="/admin/users" className='w-full h-[40px] text-black text-[20px] font-bold flex items-center gap-2 p-2'>
           <FaRegUser />
@@ -33,8 +33,8 @@ export default function AdminPage() {
         <Routes path="/*"> 
           <Route path="/dashboard" element={<h1>Dashboard</h1>}></Route>
           <Route path="/bookings" element={<h1>Booking</h1>}></Route>
-          <Route path="/items" element={<AdminItemsPage/>}></Route>
-          <Route path="/items/add" element={<AddItemPage/>}></Route>
+          <Route path="/products" element={<AdminProductsPage/>}></Route>
+          <Route path="/products/add" element={<AddProductPage/>}></Route>
           <Route path="/users" element={<h1>Users</h1>}></Route>
           
 
