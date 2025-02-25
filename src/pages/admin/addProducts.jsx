@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 export default function AddProductPage() {
     const [productKey, setProductKey] = useState("");
@@ -9,6 +10,7 @@ export default function AddProductPage() {
     const [productCategory, setProductCategory] = useState("lights");
     const [productDimension, setProductDimension] = useState("");
     const [productDescription, setProductDescription] = useState("");
+    const navigate = useNavigate();
 
     async function handleAddProduct() {
         console.log(productKey, productName, productPrice, productCategory, productDimension, productDescription);
@@ -30,6 +32,7 @@ export default function AddProductPage() {
                     }
                 });
                 toast.success("Product added successfully!");
+                navigate("/admin/products");
             } catch (error) {
                 toast.error("Failed to add product: " + error.response?.data?.message || error.message);
             }
@@ -93,7 +96,7 @@ export default function AddProductPage() {
                     >
                         Add Product
                     </button>
-                    <button
+                    <button onClick={()=>{navigate("/admin/products")}}
                         className="w-1/2 py-3 bg-red-500 text-white font-bold rounded-lg hover:bg-red-600 transition duration-300"
                     >
                         Cancel
