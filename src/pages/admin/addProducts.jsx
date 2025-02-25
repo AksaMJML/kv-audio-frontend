@@ -1,5 +1,6 @@
+import axios from "axios";
 import { useState } from "react";
-import { Toaster } from "react-hot-toast";
+import toast, { Toaster } from "react-hot-toast";
 
 export default function AddProductPage() {
     const [productKey, setProductKey] = useState("");
@@ -9,10 +10,34 @@ export default function AddProductPage() {
     const [productDimension, setProductDimension] = useState("");
     const [productDescription, setProductDescription] = useState("");
 
-    function handleAddProduct(){
-        console.log(productKey,productName,productPrice,productCategory,productDimension,productDescription)
+    async function handleAddProduct() {
+        console.log(productKey, productName, productPrice, productCategory, productDimension, productDescription);
+    
+        const token = localStorage.getItem("token"); // Fix the method name
+    
+        if (token) {
+            try {
+                const result = await axios.post("http://localhost:3000/api/products", { // Fix the URL
+                    key: productKey,
+                    name: productName,
+                    price: productPrice,
+                    category: productCategory,
+                    dimensions: productDimension,
+                    description: productDescription
+                }, {
+                    headers: {
+                        Authorization: "Bearer " + token // Add space after 'Bearer'
+                    }
+                });
+                toast.success("Product added successfully!");
+            } catch (error) {
+                toast.error("Failed to add product: " + error.response?.data?.message || error.message);
+            }
+        } else {
+            toast.error("You are not authorized to perform this action"); // Fix typo
+        }
     }
-
+    
     return (
         <div className="w-full h-screen flex flex-col items-center justify-center bg-gradient-to-br from-purple-600 to-indigo-600 p-5">
             <Toaster />
