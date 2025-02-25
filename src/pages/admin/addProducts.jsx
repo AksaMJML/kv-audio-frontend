@@ -4,10 +4,14 @@ import { Toaster } from "react-hot-toast";
 export default function AddProductPage() {
     const [productKey, setProductKey] = useState("");
     const [productName, setProductName] = useState("");
-    const [productPrice, setProductPrice] = useState("");
-    const [productCategory, setProductCategory] = useState("audio");
+    const [productPrice, setProductPrice] = useState(0);
+    const [productCategory, setProductCategory] = useState("lights");
     const [productDimension, setProductDimension] = useState("");
     const [productDescription, setProductDescription] = useState("");
+
+    function handleAddProduct(){
+        console.log(productKey,productName,productPrice,productCategory,productDimension,productDescription)
+    }
 
     return (
         <div className="w-full h-screen flex flex-col items-center justify-center bg-gradient-to-br from-purple-600 to-indigo-600 p-5">
@@ -29,7 +33,7 @@ export default function AddProductPage() {
                     value={productName}
                 />
                 <input
-                    type="text"
+                    type="number"
                     placeholder="Product Price"
                     className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
                     onChange={(e) => setProductPrice(e.target.value)}
@@ -59,8 +63,8 @@ export default function AddProductPage() {
                     rows="3"
                 ></textarea>
                 <div className="w-full flex space-x-4">
-                    <button
-                        className="w-1/2 py-3 bg-indigo-500 text-white font-bold rounded-lg hover:bg-indigo-600 transition duration-300"
+                    <button onClick={handleAddProduct}
+                        className="w-1/2 py-3 bg-indigo-500  text-white font-bold rounded-lg hover:bg-indigo-600 transition duration-300"
                     >
                         Add Product
                     </button>
