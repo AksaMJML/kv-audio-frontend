@@ -82,14 +82,22 @@ export default function AdminProductsPage(){
                 <th>Availability</th>
             </thead>
             <tbody>
-                <tr>
-                    <td>AUDIO001</td>
-                    <td>Wireless Earbuds</td>
-                    <td>$79.99</td>
-                    <td>audio</td>
-                    <td>2x2x1 cm</td>
-                    <td>Yes</td>
-                </tr>
+                {
+                    products.map((product)=>{
+                        return(
+                        <tr>
+                            <td>{product.key}</td>
+                            <td>{product.name}</td>
+                            <td>{product.price}</td>
+                            <td>{product.category}</td>
+                            <td>{product.dimensions}</td>
+                            <td>{product.description}</td>
+                            <td>{product.availability ? "Available" : "Not Aavailable"}</td>
+                        </tr>
+                        )
+                    })
+               
+                }
                 <tr>
                     <td>AUDIO002</td>
                     <td>Studio Headphones</td>
