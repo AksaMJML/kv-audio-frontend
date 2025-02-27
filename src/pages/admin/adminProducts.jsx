@@ -65,12 +65,23 @@ const sampleArr = [
     }
 ];
 
+import axios from "axios";
 import { useState } from "react";
 import { CiCirclePlus } from "react-icons/ci";
 import { Link } from "react-router-dom";
 
 export default function AdminProductsPage(){
     const [products, setProducts] = useState(sampleArr);
+
+    const token = localStorage.getItem("token");
+    axios.get("http://localhost:3000/api/products", {headers:{"authorization" : `Bearer ${token}`}}).then((res)=>{
+        console.log(res.data)
+    }).catch((err)=>{
+        console.log(err)
+    })
+
+    axios.get("api/products");
+
     return(
        <div className="w-full h-full bg-red-200 relative">
         <table>
