@@ -65,6 +65,7 @@ const sampleArr = [
     }
 ];
 
+import { useState } from "react";
 import { CiCirclePlus } from "react-icons/ci";
 import { Link } from "react-router-dom";
 
@@ -79,71 +80,32 @@ export default function AdminProductsPage(){
                 <th>Price</th>
                 <th>Category</th>
                 <th>Dimension</th>
+                <th>Description</th>
                 <th>Availability</th>
             </thead>
             <tbody>
                 {
                     products.map((product)=>{
                         return(
-                        <tr>
+                        <tr key={product.key}>
                             <td>{product.key}</td>
                             <td>{product.name}</td>
                             <td>{product.price}</td>
                             <td>{product.category}</td>
                             <td>{product.dimensions}</td>
                             <td>{product.description}</td>
-                            <td>{product.availability ? "Available" : "Not Aavailable"}</td>
+                            <td>{product.isAvailable ? "Available" : "Not Aavailable"}</td>
                         </tr>
                         )
                     })
                
                 }
-                <tr>
-                    <td>AUDIO002</td>
-                    <td>Studio Headphones</td>
-                    <td>$199.99</td>
-                    <td>audio</td>
-                    <td>20x18x10 cm</td>
-                    <td>Yes</td>
-                </tr>
-                <tr>
-                    <td>LIGHT001</td>
-                    <td>Desk Lamp</td>
-                    <td>$39.99</td>
-                    <td>lights</td>
-                    <td>30x10x10 cm</td>
-                    <td>Yes</td>
-                </tr>
-                <tr>
-                    <td>LIGHT002</td>
-                    <td>Ceiling Light</td>
-                    <td>$89.99</td>
-                    <td>lights</td>
-                    <td>40x40x5 cm</td>
-                    <td>No</td>
-                </tr>
-                <tr>
-                    <td>SPEAKER001</td>
-                    <td>Portable Bluetooth Speaker</td>
-                    <td>$59.99</td>
-                    <td>speakers</td>
-                    <td>15x10x10 cm</td>
-                    <td>Yes</td>
-                </tr>
-                <tr>
-                    <td>SPEAKER002</td>
-                    <td>Soundbar</td>
-                    <td>$149.99</td>
-                    <td>speakers</td>
-                    <td>90x10x8 cm</td>
-                    <td>Yes</td>
-                </tr>
             </tbody>
         </table>
         <Link to="/admin/products/add">
         <CiCirclePlus className="text-[50px] absolute right-2 bottom-2 "  />
         </Link>
-        <h1>admin Products pages</h1>
+        
        </div>
     )
 }
